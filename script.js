@@ -50,6 +50,7 @@ function clear() {
     expression = "";
     result = 0;
     resultsScreen.innerText = 0;
+    currNum = "";
 }
 
 function positiveToNegative() { //check for expression
@@ -62,7 +63,7 @@ function positiveToNegative() { //check for expression
     return result;
 }
 
-function convertToPercentage() {
+function convertToPercentage() { // change to EXP
     
 }
 
@@ -75,25 +76,30 @@ function divide() {
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "/";
     }
+    currNum = "";
+
     console.log(expression);
     return
 }
 
 function button7Operation() {
     expression += "7";
-    update(7);
+    currNum += "7";
+    update(currNum);
     console.log(expression);
 }
 
 function button8Operation() {
     expression += "8";
-    update(8);
+    currNum += "8";
+    update(currNum);
     console.log(expression);
 }
 
 function button9Operation() {
     expression += "9";
-    update(9);
+    currNum += "9";
+    update(currNum);
     console.log(expression);
 }
 
@@ -106,25 +112,30 @@ function multiply() {
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "*";
     }
+    currNum = "";
+
     console.log(expression);
     return
 }
 
 function button4Operation() {
     expression += "4";
-    update(4);
+    currNum += "4";
+    update(currNum);
     console.log(expression);
 }
 
 function button5Operation() {
     expression += "5";
-    update(5);
+    currNum += "5";
+    update(currNum);
     console.log(expression);
 }
 
 function button6Operation() {
     expression += "6";
-    update(6);
+    currNum += "6";
+    update(currNum);
     console.log(expression);
 }
 
@@ -137,25 +148,30 @@ function subtract() {
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "-";
     }
+    currNum = "";
+
     console.log(expression);
     return
 }
 
 function button1Operation() {
     expression += "1";
-    update(1);
+    currNum += "1";
+    update(currNum);
     console.log(expression);
 }
 
 function button2Operation() {
     expression += "2";
-    update(2);
+    currNum += "2";
+    update(currNum);
     console.log(expression);
 }
 
 function button3Operation() {
     expression += "3";
-    update(3);
+    currNum += "3";
+    update(currNum);
     console.log(expression);
 }
 
@@ -168,13 +184,16 @@ function add() {
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "+";
     }
+    currNum = "";
+
     console.log(expression);
     return
 }
 
 function button0Operation() {
     expression += "0";
-    update(0);
+    currNum += "0";
+    update(currNum);
     console.log(expression);
 }
 
@@ -193,10 +212,13 @@ function evaluateExpression() {
         console.log(total);
         resultsScreen.innerText = total;
     }
+    currNum = "";
+
 }
 
 function isError() {
     resultsScreen.innerText = "Error";
     result = 0;
     expression = "";
+    currNum = "";
 }
