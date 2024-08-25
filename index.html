@@ -12,30 +12,37 @@
     </div>
     <main class="my-6">
         <div id="calculator">
-            <div id="calculator-body" style="height: 400px; width: 300px;" class="border-2 border-orange-500 rounded-3xl flex flex-col items-center">
-                <div id="calculator-results-screen" class="border-2 border-orange-500 my-10 h-12 w-60 rounded-3xl">
+            <div id="calculator-body" style="height: 400px; width: 300px;" class="border-2 border-orange-500 rounded-3xl flex flex-col items-center justify-center gap-3">
+                <div id="calculator-results-screen" class="border-2 border-orange-500 h-12 w-60 rounded-3xl">
                     <div id="result-text" class="flex justify-end items-center h-full mx-5">
                         <h2 class="text-2xl font-bold">0</h2>
                     </div>
                 </div>
-                <div id="buttons-grid" class="border-2 border-orange-500 rounded-3xl h-56 w-60 p-5 grid grid-cols-4 grid-rows-4 gap-y-3">
-                    <button id="buttonac" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">AC</button>
-                    <button id="button-positive-negative" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center"><sup>+</sup>&frasl;<sub>-</sub>
-                    </button>
-                    <button id="button-percentage" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">%</button>
-                    <button id="button-divide" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">&divide</button>
-                    <button id="button7" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">7</button>
-                    <button id="button8" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">8</button>
-                    <button id="button9" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">9</button>
-                    <button id="button-multiply" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">&times</button>
-                    <button id="button4" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">4</button>
-                    <button id="button5" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">5</button>
-                    <button id="button6" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">6</button>
-                    <button id="button-subtract" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">&#8722</button>
-                    <button id="button1" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">1</button>
-                    <button id="button2" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">2</button>
-                    <button id="button3" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">3</button>
-                    <button id="button-add" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">+</button>
+                <div id="buttons" class="border-2 border-orange-500 rounded-3xl h-72 w-60 p-5 flex flex-col justify-center gap-y-3">
+                    <div id="buttons-grid" class="grid grid-cols-4 grid-rows-4 gap-y-3">
+                        <button id="buttonac" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">AC</button>
+                        <button id="button-positive-negative" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center"><sup>+</sup>&frasl;<sub>-</sub>
+                        </button>
+                        <button id="button-percentage" class="text-md font-bold bg-gray-300 text-black w-10 h-10 rounded-full justify-self-center self-center">%</button>
+                        <button id="button-divide" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">&divide</button>
+                        <button id="button7" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">7</button>
+                        <button id="button8" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">8</button>
+                        <button id="button9" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">9</button>
+                        <button id="button-multiply" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">&times</button>
+                        <button id="button4" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">4</button>
+                        <button id="button5" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">5</button>
+                        <button id="button6" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">6</button>
+                        <button id="button-subtract" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">&#8722</button>
+                        <button id="button1" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">1</button>
+                        <button id="button2" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">2</button>
+                        <button id="button3" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full justify-self-center self-center">3</button>
+                        <button id="button-add" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full justify-self-center self-center">+</button>
+                    </div>
+                    <div id="last-row" class="flex gap-x-2">
+                        <button id="button0" class="text-md font-bold bg-gray-600 text-white w-24 h-10 rounded-full">0</button>
+                        <button id="button-decimal" class="text-md font-bold bg-gray-600 text-white w-10 h-10 rounded-full">.</button>
+                        <button id="button-equals" class="text-md font-bold bg-orange-400 text-white w-10 h-10 rounded-full">=</button>
+                    </div>
                 </div>
             </div>
         </div>
