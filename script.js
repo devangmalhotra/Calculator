@@ -183,5 +183,20 @@ function addDecimal() {
 }
 
 function evaluateExpression() {
+    let total = 0;
+    let lastChar = expression.charAt(expression.length - 1);
 
+    if (/([*-/+])/g.test(lastChar)) {
+        isError();
+    } else {
+        total = eval(expression);
+        console.log(total);
+        resultsScreen.innerText = total;
+    }
+}
+
+function isError() {
+    resultsScreen.innerText = "Error";
+    result = 0;
+    expression = "";
 }

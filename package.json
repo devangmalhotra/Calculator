@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "mathjs": "^13.0.3"
+  }
 }
