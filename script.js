@@ -20,6 +20,7 @@ let decimalButton = document.getElementById('button-decimal');
 let equalsButton = document.getElementById('button-equals');
 let result = 0;
 let expression = "";
+let currNum = "";
 
 acButton.onclick = clear;
 negativePositiveButton.onclick = positiveToNegative;
@@ -66,69 +67,115 @@ function convertToPercentage() {
 }
 
 function divide() {
-    expression += "/";
+    let lastChar = expression.charAt(expression.length - 1);
+
+    if (/([*+-])/g.test(lastChar)) {
+        expression = expression.replace(/.$/, '/');
+        
+    } else if (/([0-9])/g.test(lastChar)) {
+        expression += "/";
+    }
+    console.log(expression);
+    return
 }
 
 function button7Operation() {
     expression += "7";
     update(7);
+    console.log(expression);
 }
 
 function button8Operation() {
     expression += "8";
     update(8);
+    console.log(expression);
 }
 
 function button9Operation() {
     expression += "9";
     update(9);
+    console.log(expression);
 }
 
 function multiply() {
-    expression += "*";
+    let lastChar = expression.charAt(expression.length - 1);
+
+    if (/([/+-])/g.test(lastChar)) {
+        expression = expression.replace(/.$/, '*');
+        
+    } else if (/([0-9])/g.test(lastChar)) {
+        expression += "*";
+    }
+    console.log(expression);
+    return
 }
 
 function button4Operation() {
     expression += "4";
     update(4);
+    console.log(expression);
 }
 
 function button5Operation() {
     expression += "5";
     update(5);
+    console.log(expression);
 }
 
 function button6Operation() {
     expression += "6";
     update(6);
+    console.log(expression);
 }
 
 function subtract() {
-    expression += "-";
+    let lastChar = expression.charAt(expression.length - 1);
+
+    if (/([*+/])/g.test(lastChar)) {
+        expression = expression.replace(/.$/, '-');
+        
+    } else if (/([0-9])/g.test(lastChar)) {
+        expression += "-";
+    }
+    console.log(expression);
+    return
 }
 
 function button1Operation() {
     expression += "1";
     update(1);
+    console.log(expression);
 }
 
 function button2Operation() {
     expression += "2";
     update(2);
+    console.log(expression);
 }
 
 function button3Operation() {
     expression += "3";
     update(3);
+    console.log(expression);
 }
 
 function add() {
-    expression += "+";
+    let lastChar = expression.charAt(expression.length - 1);
+
+    if (/([*-/])/g.test(lastChar)) {
+        expression = expression.replace(/.$/, '+');
+        
+    } else if (/([0-9])/g.test(lastChar)) {
+        expression += "+";
+    }
+    console.log(expression);
+    return
 }
 
 function button0Operation() {
     expression += "0";
     update(0);
+    console.log(expression);
 }
 
 function addDecimal() {
