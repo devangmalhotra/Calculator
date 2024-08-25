@@ -41,19 +41,17 @@ button0.onclick = button0Operation;
 decimalButton.onclick = addDecimal;
 equalsButton.onclick = evaluateExpression;
 
-function update(result) {
-    let strResult = result.toString();
-    resultsScreen.innerText = strResult;
-    console.log(strResult);
+function update(currTotal) {
+    resultsScreen.innerText = currTotal;
 }
 
 function clear() {
     expression = "";
     result = 0;
-    resultsScreen.innerText = "0";
+    resultsScreen.innerText = 0;
 }
 
-function positiveToNegative(result) {
+function positiveToNegative() { //check for expression
     if (result != 0) {
         result *= -1;
     }
@@ -68,59 +66,69 @@ function convertToPercentage() {
 }
 
 function divide() {
-
+    expression += "/";
 }
 
 function button7Operation() {
-
+    expression += "7";
+    update(7);
 }
 
 function button8Operation() {
-
+    expression += "8";
+    update(8);
 }
 
 function button9Operation() {
-
+    expression += "9";
+    update(9);
 }
 
 function multiply() {
-
+    expression += "*";
 }
 
 function button4Operation() {
-
+    expression += "4";
+    update(4);
 }
 
 function button5Operation() {
-
+    expression += "5";
+    update(5);
 }
 
 function button6Operation() {
-
+    expression += "6";
+    update(6);
 }
 
 function subtract() {
-
+    expression += "-";
 }
 
 function button1Operation() {
-
+    expression += "1";
+    update(1);
 }
 
 function button2Operation() {
-
+    expression += "2";
+    update(2);
 }
 
 function button3Operation() {
-
+    expression += "3";
+    update(3);
 }
 
 function add() {
-
+    expression += "+";
 }
 
 function button0Operation() {
-
+    expression += "0";
+    update(0);
 }
 
 function addDecimal() {
