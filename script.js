@@ -223,6 +223,7 @@ function evaluateExpression() {
         resultsScreen.innerText = total;
     }
     currNum = "";
+    expression = total.toString();
 
 }
 
