@@ -198,7 +198,17 @@ function button0Operation() {
 }
 
 function addDecimal() {
+    let lastChar = expression.charAt(expression.length - 1);
 
+    if (expression == "" || /([*-/])/g.test(lastChar)) {
+        expression += "0."
+        currNum += "0."
+    } else {
+        expression += "."
+        currNum += "."
+    }
+
+    update(currNum);
 }
 
 function evaluateExpression() {
