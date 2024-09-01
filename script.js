@@ -1,7 +1,7 @@
 let resultsScreen = document.querySelector('h2');
 let acButton = document.getElementById('buttonac');
 let negativePositiveButton = document.getElementById('button-positive-negative');
-let percentageButton = document.getElementById('button-percentage');
+let expButton = document.getElementById('button-exp');
 let divideButton = document.getElementById('button-divide');
 let button7 = document.getElementById('button7');
 let button8 = document.getElementById('button8');
@@ -24,7 +24,7 @@ let currNum = "";
 
 acButton.onclick = clear;
 negativePositiveButton.onclick = positiveToNegative;
-percentageButton.onclick = convertToPercentage;
+expButton.onclick = addExponent;
 divideButton.onclick = divide;
 button7.onclick = button7Operation;
 button8.onclick = button8Operation;
@@ -63,12 +63,26 @@ function positiveToNegative() { //check for expression
     return result;
 }
 
-function convertToPercentage() { // change to EXP
+function addExponent() {
+    let lastChar = expression.charAt(expression.length - 1);
+    let lastTwoChars = expression.slice(-2);
     
+    if (/([*]{2})/g.test(lastTwoChars)) {
+        expression = expression.replace(/([*]{2})/g, '**');
+    } else if (/([*+-/])/g.test(lastChar)) {
+        expression = expression.replace(/.$/, '**');
+    } else if (/([0-9])/g.test(lastChar)) {
+        expression += "**";
+    }
+
+    currNum = "";
+
+    console.log(expression);
+    return
 }
 
 function divide() {
-    let lastChar = expression.charAt(expression.length - 1);
+    /*let lastChar = expression.charAt(expression.length - 1);
 
     if (/([*+-])/g.test(lastChar)) {
         expression = expression.replace(/.$/, '/');
@@ -76,6 +90,20 @@ function divide() {
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "/";
     }
+    currNum = "";
+    */
+
+    let lastChar = expression.charAt(expression.length - 1);
+    let lastTwoChars = expression.slice(-2);
+    
+    if (/([*]{2})/g.test(lastTwoChars)) {
+        expression = expression.replace(/([*]{2})/g, '/');
+    } else if (/([*+-])/g.test(lastChar)) {
+        expression = expression.replace(/.$/, '/');
+    } else if (/([0-9])/g.test(lastChar)) {
+        expression += "/";
+    }
+
     currNum = "";
 
     console.log(expression);
@@ -105,13 +133,16 @@ function button9Operation() {
 
 function multiply() {
     let lastChar = expression.charAt(expression.length - 1);
-
-    if (/([/+-])/g.test(lastChar)) {
+    let lastTwoChars = expression.slice(-2);
+    
+    if (/([*]{2})/g.test(lastTwoChars)) {
+        expression = expression.replace(/([*]{2})/g, '*');
+    } else if (/([/+-])/g.test(lastChar)) {
         expression = expression.replace(/.$/, '*');
-        
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "*";
     }
+
     currNum = "";
 
     console.log(expression);
@@ -141,13 +172,16 @@ function button6Operation() {
 
 function subtract() {
     let lastChar = expression.charAt(expression.length - 1);
-
-    if (/([*+/])/g.test(lastChar)) {
+    let lastTwoChars = expression.slice(-2);
+    
+    if (/([*]{2})/g.test(lastTwoChars)) {
+        expression = expression.replace(/([*]{2})/g, '-');
+    } else if (/([*+-])/g.test(lastChar)) {
         expression = expression.replace(/.$/, '-');
-        
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "-";
     }
+
     currNum = "";
 
     console.log(expression);
@@ -177,13 +211,16 @@ function button3Operation() {
 
 function add() {
     let lastChar = expression.charAt(expression.length - 1);
-
-    if (/([*-/])/g.test(lastChar)) {
+    let lastTwoChars = expression.slice(-2);
+    
+    if (/([*]{2})/g.test(lastTwoChars)) {
+        expression = expression.replace(/([*]{2})/g, '+');
+    } else if (/([/*-])/g.test(lastChar)) {
         expression = expression.replace(/.$/, '+');
-        
     } else if (/([0-9])/g.test(lastChar)) {
         expression += "+";
     }
+
     currNum = "";
 
     console.log(expression);
@@ -199,26 +236,36 @@ function button0Operation() {
 
 function addDecimal() {
     let lastChar = expression.charAt(expression.length - 1);
+    let lastTwoChars = expression.slice(-2);
 
-    if (expression == "" || /([*-/])/g.test(lastChar)) {
+    if (expression == "") {
         expression += "0."
         currNum += "0."
-    } else {
+    } else if (/([*]{2})/g.test(lastTwoChars)) {
+        expression += "0."
+        currNum += "0."
+    } else if (/([/*-+])/g.test(lastChar)) {
+        expression += "0."
+        currNum += "0."
+    }
+    else {
         expression += "."
         currNum += "."
     }
 
     update(currNum);
+    console.log(expression);
 }
 
 function evaluateExpression() {
     let total = 0;
     let lastChar = expression.charAt(expression.length - 1);
 
-    if (/([*-/+])/g.test(lastChar)) {
+    if (/([*-/+^])/g.test(lastChar)) {
         isError();
     } else {
         total = eval(expression);
+        total = Math.round((total + Number.EPSILON) * 100000000000) / 100000000000
         console.log(total);
         resultsScreen.innerText = total;
     }
